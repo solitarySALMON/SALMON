@@ -9,6 +9,13 @@
 	object-fit: cover;
 }
 
+#img_size2{
+	width: 800px;
+	height: 400px;
+	text-align: center;
+	object-fit: cover;
+}
+
 #non_touch {
     pointer-events : none;
 }
