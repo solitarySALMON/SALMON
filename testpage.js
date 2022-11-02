@@ -29,7 +29,7 @@ togglelabel.addEventListener("keydown", function(e){
 
 function logout(){
     alert("로그아웃 되었습니다.");
-    location.href = '/main.html';
+    location.href = './main.html';
 }
 
 function toggle(){
@@ -45,7 +45,7 @@ function toggle(){
 function changeIframe(pagenum){
     switch(pagenum){
         case 0:
-            iframe.src = "./exerciseDisorder/subin.html";
+            iframe.src = "./exerciseDisorder/tutorial.html";
             break;
         case 1:
             iframe.src = "./lowVision/test2.html";
