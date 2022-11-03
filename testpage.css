@@ -84,3 +84,7 @@ iframe {
 #tab1:focus, #tab2:focus, #tab3:focus{
     background-color: rgb(148, 171, 214);
 }
+
+#description{
+    height: 60px;
+}
