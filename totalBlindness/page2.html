@@ -2,17 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="page1.css">
+        <link rel="stylesheet" href="page2.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <label class="switch">
-            <input type="checkbox" id="onoffbtn" checked="checked">
-            <span class="slider round"></span>
-        </label>
-        <p style="display:none;">OFF</p><p>ON</p>
+        <div id="div1">
+            <input type="checkbox" id="checkbox" checked>
+            <label for="checkbox"><span></span></label>
+        </div>
 
-        <div class="div1">
+        <div id="div2">
 
             <table class="type1">
                 <thead>
@@ -23,6 +22,7 @@
                         <th>iPhone</th>
                         <th>Watch</th>
                         <th>AirPds</th>
+                        <th>검색 버튼</th>
                     </tr>
                 </thead>
             </table>
@@ -54,7 +54,28 @@
                         <p>iPhone 13<br><br>\950,000부터</p></td>
                     </tr>
 
-                    
+                    <tr>
+                        <td><img class="fit-picture"
+                            src="./images/ipadpro.png"
+                            alt="ipadpro"
+                            style="width:150px;">
+                        <p>iPad Pro<br><br>\1,249,000부터</p></td>
+                        <td><img class="fit-picture"
+                            src="./images/ipadair.png"
+                            alt="ipadair"
+                            style="width:150px;">
+                        <p>iPad Air<br><br>\929,000부터</p></td>
+                        <td><img class="fit-picture"
+                            src="./images/ipadmini.png"
+                            alt="ipadmini"
+                            style="width:150px;">
+                        <p>iPad mini<br><br>\769,000부터</p></td>
+                        <td><img class="fit-picture"
+                            src="./images/airpodspro2.png"
+                            alt="airpodspro3"
+                            style="width:120px;">
+                        <p>AirPods Pro(2세대)</p>
+                        <p><br>\359,000부터</p></td>
                     </tr>
                 </tbody>
             </table>
@@ -69,6 +90,8 @@
 
     </body>
 
+    
 
-    <script src="page1.js"></script>
+
+    <script src="page2.js"></script>
 </html>
