@@ -45,13 +45,16 @@ function toggle(){
 function changeIframe(pagenum){
     switch(pagenum){
         case 0:
-            iframe.src = "./exerciseDisorder/tutorial.html";
+            iframe.src = "./exerciseDisorder/subin.html";
+            togglelabel.style.display = 'none';
             break;
         case 1:
             iframe.src = "./lowVision/test2.html";
+            togglelabel.style.display = 'block';
             break;
         case 2:
             iframe.src = "./totalBlindness/cart.html"
+            togglelabel.style.display = 'block';
             break;
         default:
             break;
