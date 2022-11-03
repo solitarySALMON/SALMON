@@ -45,7 +45,7 @@ function toggle(){
 function changeIframe(pagenum){
     switch(pagenum){
         case 0:
-            iframe.src = "./exerciseDisorder/subin.html";
+            iframe.src = "./exerciseDisorder/tutorial.html";
             togglelabel.style.display = 'none';
             break;
         case 1:
