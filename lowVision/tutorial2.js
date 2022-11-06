@@ -1,5 +1,3 @@
-let testBtn = document.getElementById("test");
-
-testBtn.addEventListener("click", function(){
+function try_page() {
     location.href="./test2.html"
-})
+}
