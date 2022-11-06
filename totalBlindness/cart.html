@@ -2,24 +2,49 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="page1.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="page1.js"></script>
+        <style>
+            h2 { text-align: center; }
+            h3 { text-align: center; }
+            h4 { text-align: center; }
+            h5 { text-align: center; }
+            #test{
+                width:100px;
+                margin:auto;
+                display:block;
+                background-color: #000000;
+                border: none;
+                color:#fff;
+                padding: 15px 0;
+                text-align: center;
+                text-decoration: none;
+                font-size: 15px;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         
-        <p>전맹시각장애인</p>
+        <h2>전맹 시각장애란?</h2>
+        <h5>시력이 '0'이며 빛을 지각하지 못하는 시각장애로 앞이 전혀 보이지 않습니다.</h5>
+        <h5>따라서 전맹 시각 장애인은 더욱 발달된 청각으로 웹을 이용합니다.</h5>
+        <h5>주로 tts 기능을 사용하여 소리를 듣고 웹을 이용합니다.</h5>
+        <div style ="text-align:center";>
+            <img src="./images/tutorial.png" width="200" height="200">
+        </div>
+        <h4>&nbsp;</h4>
+        <h3>화면을 끄고 키보드를 이용하여 소리를 듣고 웹을 체험해보세요!</h3>
+        <h5>1. 소리를 듣고 [00 제품] 을 골라주세요.</h5>
+        <h5>2. ~~를 확인해주세요.</h5>
+        <h5>3. ~~ 를 통해 체험을 완료해주세요.</h5>
+        <h4>&nbsp;</h4>
+        <div style ="text-align:center";>
+            <img src="./images/blindness.png">
+            <h5>화면 밝기의 ON/OFF가 가능합니다.</h5>
+        </div>
+        <h4>&nbsp;</h4>
 
-        <button id="btn">체험 고</button>
-
-        
-
-
-        
-
-
-
+        <button id="test" onclick="try_page()">체험하기</button>
     </body>
-
-
-    <script src="page1.js"></script>
 </html>
