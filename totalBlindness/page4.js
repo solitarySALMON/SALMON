@@ -20,6 +20,6 @@ function onoff() {
 
 function enterkey() {
 	if (window.event.keyCode == 13) {
-    	open('page3.html', '_self')
+    	open('page5.html', '_self')
     }
 }
