@@ -7,16 +7,33 @@
     <link rel="stylesheet" href="exerciseDisorder.css">
     <script src="keyboard.js"></script>
     <script src="exerciseDisorder.js"></script>
+    <style>
+        #test{
+            width:70px;
+            margin:auto;
+            display:block;
+            background-color:coral;
+            border: none;
+            color:black;
+            padding: 5px 0;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+		div { text-align: center; }
+    </style>
     <title>운동장애</title>
 </head>
 <body>
-    <div id="non_touch" style="clear:both;">
+    <div id="non_touch" style="clear:both;background-color: blanchedalmond;">
+        <h5>&nbsp;</h5>
         <div><img id="img_size2" src="./book/빨강_미리보기.png"></div>
-        <div><button type="button" onclick="end_page()">닫기</button></div>
+        <div><button id="test"type="button" onclick="end_page()">닫기</button></div>
+        <h3>&nbsp;</h3>
     </div>
     <div style="clear:both"></div>
     <div id="keyboard" style="clear:both;background-color:white;">
-        <div class="inner"><img src="./keyboard/keyboard.png" alt="keyboard" width="20" height="20">&nbsp키보드</div>
         <div id="custom-keyboard02" class="bigkeyboard_layout a11y-keyboard ko">
             <div class="main_key">
                 <div id="row0">

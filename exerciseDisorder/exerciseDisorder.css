@@ -3,6 +3,10 @@
     float: left;
 }
 
+a{
+	text-decoration-line : none;
+}
+
 #img_size{
 	width: 180px;
 	height: 250px;
@@ -14,6 +18,7 @@
 	height: 400px;
 	text-align: center;
 	object-fit: cover;
+	margin: auto;
 }
 
 #non_touch {
