@@ -11,6 +11,10 @@ iframe {
     margin: 10px;
 }
 
+#wrapper {
+    display: flex;
+}
+
 .toggle_box {
     display: flex;
     align-items: center;
@@ -87,4 +91,15 @@ iframe {
 
 #description{
     height: 60px;
+}
+
+#test{
+    float: left;
+}
+
+#comment{
+    margin-left: 20px;
+    float: left;
+    flex-grow: 1;
+    border: 1px black solid;
 }
