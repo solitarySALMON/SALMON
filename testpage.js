@@ -133,7 +133,7 @@ function changeIframe(pagenum){
         case 2:
             iframe.src = "./totalBlindness/cart.html"
             iframe2.src = "./commentPage/tbcomment.html";
-            togglelabel.style.display = 'block';
+            togglelabel.style.display = 'none';
             break;
         default:
             break;
