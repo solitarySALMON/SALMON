@@ -23,3 +23,14 @@ function check() {
         open('page7.html', '_self')
     }
 }
+
+function play(event) {
+    const myAudio1 = event.target.childNodes;
+    console.log(myAudio1);
+    myAudio1[1].play();
+}
+
+function play1(event) {
+    const myAudio1 = document.getElementById("total");
+    myAudio1.play();
+}

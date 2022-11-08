@@ -37,13 +37,16 @@ function check() {
 function entercolor() {
 	if (window.event.keyCode == 13) {
     	//hover 색깔 칠하기
+        var box = document.getElementById("color");
+        box.style.backgroundColor = "#ccc";
         iscolor = true;
     }
 }
 
 function enterdata() {
 	if (window.event.keyCode == 13) {
-    	//hover 색깔 칠하기
+        var box = document.getElementById("gb");
+        box.style.backgroundColor = "#ccc";
         isdata = true;
     }
 }
@@ -51,6 +54,8 @@ function enterdata() {
 function enterwifi() {
 	if (window.event.keyCode == 13) {
     	//hover 색깔 칠하기
+        var box = document.getElementById("wifi");
+        box.style.backgroundColor = "#ccc";
         iswifi = true;
     }
 }
@@ -59,4 +64,11 @@ function back() {
 	if (window.event.keyCode == 13) {
     	open('page5.html', '_self');
     }
+}
+
+
+function play(event) {
+    const myAudio1 = event.target.childNodes;
+    console.log(myAudio1);
+    myAudio1[1].play();
 }
