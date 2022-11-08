@@ -29,3 +29,9 @@ function back() {
     	open('page3.html', '_self')
     }
 }
+
+function play(event) {
+    const myAudio1 = event.target.childNodes;
+    console.log(myAudio1);
+    myAudio1[1].play();
+}

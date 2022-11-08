@@ -125,11 +125,53 @@ input[type="checkbox"] {
     padding: 10px;
     font-weight: bold;  
     vertical-align: top;
-    border-bottom: 1px solid #ccc;
   }
   table.type3 td {
     width: 200px;
     padding: 10px;
     vertical-align: top;
+  }
+
+  .line {
     border-bottom: 1px solid #ccc;
   }
+
+
+.w-btn {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.w-btn-gra1 {
+  background: linear-gradient(-45deg, #33ccff 0%, #ff99cc 100%);
+  color: white;
+}
+
+.w-btn-gra-anim {
+  background-size: 400% 400%;
+  animation: gradient1 5s ease infinite;
+}
+
+@keyframes gradient1 {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.btn {
+  margin-top: 80px;
+}
