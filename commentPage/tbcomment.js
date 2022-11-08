@@ -18,6 +18,7 @@ const mine = document.querySelector('.mine2');
 db.collection("comment2").get().then((querySnapshot) =>{
     querySnapshot.forEach((doc) =>{
         let commentArray = doc.data().history;
+        let num = 0;
 
         if(doc.id == localStorage.getItem("user")){
             commentArray.forEach((comment) => {
@@ -27,10 +28,11 @@ db.collection("comment2").get().then((querySnapshot) =>{
                         <td>${doc.id}: </td>
                         <td>&nbsp${comment}</td>
                         <td>
-                            <button id="delete">X</button>
+                            <button id="delete" onclick="delete_comment2(${num})">X</button>
                         </td>
                     </tr>
                 `;
+                num++;
             });
         }else{
             commentArray.forEach((comment) => {
@@ -45,3 +47,34 @@ db.collection("comment2").get().then((querySnapshot) =>{
 
     })
 })
+
+function add_comment2(){
+    var text = document.getElementById('comment-input');
+    db.collection("comment2").get().then((querySnapshot) =>{
+        querySnapshot.forEach((doc) =>{
+            let commentArray = doc.data().history;
+    
+            if(doc.id == localStorage.getItem("user")){
+                commentArray.push(text.value);
+                db.doc("comment2/"+localStorage.getItem("user")).update({
+                    history : commentArray
+                })
+            }
+        })
+    })
+}
+
+function delete_comment2(index){
+    db.collection("comment2").get().then((querySnapshot) =>{
+        querySnapshot.forEach((doc) =>{
+            let commentArray = doc.data().history;
+            if(doc.id == localStorage.getItem("user")){
+                commentArray.splice(index,1);
+                console.log(index);
+                db.doc("comment2/"+localStorage.getItem("user")).update({
+                    history : commentArray
+                })
+            }
+        })
+    })
+}

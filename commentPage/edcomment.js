@@ -12,25 +12,27 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+
 const others = document.querySelector('.others');
 const mine = document.querySelector('.mine');
 
 db.collection("comment").get().then((querySnapshot) =>{
     querySnapshot.forEach((doc) =>{
         let commentArray = doc.data().history;
+        let num = 0;
 
         if(doc.id == localStorage.getItem("user")){
             commentArray.forEach((comment) => {
-                console.log(comment)
                 mine.innerHTML += `
                     <tr>
                         <td>${doc.id}: </td>
                         <td>&nbsp${comment}</td>
                         <td>
-                            <button id="delete">X</button>
+                            <button id="delete" onclick="delete_comment(${num})">X</button>
                         </td>
                     </tr>
                 `;
+                num++;
             });
         }else{
             commentArray.forEach((comment) => {
@@ -45,3 +47,34 @@ db.collection("comment").get().then((querySnapshot) =>{
 
     })
 })
+
+function add_comment(){
+    var text = document.getElementById('comment-input');
+    db.collection("comment").get().then((querySnapshot) =>{
+        querySnapshot.forEach((doc) =>{
+            let commentArray = doc.data().history;
+    
+            if(doc.id == localStorage.getItem("user")){
+                commentArray.push(text.value);
+                db.doc("comment/"+localStorage.getItem("user")).update({
+                    history : commentArray
+                })
+            }
+        })
+    })
+}
+
+function delete_comment(index){
+    db.collection("comment").get().then((querySnapshot) =>{
+        querySnapshot.forEach((doc) =>{
+            let commentArray = doc.data().history;
+            if(doc.id == localStorage.getItem("user")){
+                commentArray.splice(index,1);
+                console.log(index);
+                db.doc("comment/"+localStorage.getItem("user")).update({
+                    history : commentArray
+                })
+            }
+        })
+    })
+}
