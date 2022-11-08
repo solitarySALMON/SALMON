@@ -32,7 +32,9 @@ let lowVision = document.getElementById("tab2");
 let totalBlindness = document.getElementById("tab3");
 
 
-loginBtn.addEventListener("click", login)
+loginBtn.addEventListener("click", function(){
+    login(inputId.value, inputPw.value);
+});
 logoutBtn.addEventListener("click", logout);
 toggleBtn.addEventListener("click", toggle);
 
@@ -65,27 +67,42 @@ if(localStorage.getItem("user")!==null){
     afterLogin.style.display = "none";
 }
 
-function login(){
-    if(inputId.value === "" || inputPw.value === ""){
+var loginState = 0;
+
+function login(id, pw){
+    if(id === "" || pw === ""){
         alert("아이디, 비밀번호를 모두 입력해주세요");
     }// 아이디, 비밀번호 공백
     else{
         db.collection("user").get().then((querySnapshot) =>{
-            querySnapshot.forEach((doc) =>{
-                if(inputId.value !== doc.data().id){
-                    alert("해당 아이디가 존재하지 않습니다. 다시 시도해주세요.");
-                }// 아이디 불일치
-                else if(inputId.value === doc.data().id && inputPw.value !== doc.data().pw){
-                    alert("비밀번호가 다릅니다. 비밀번호를 확인해주세요.");
-                }// 비밀번호 불일치
-                else{
-                    user.innerText = doc.id+" 님";
-                    localStorage.setItem("user", doc.id);
-                    alert(doc.id+"님, 로그인 되었습니다.");
-                    beforeLogin.style.display = "none";
-                    afterLogin.style.display = "block";
-                }// 로그인 성공
-            })
+            var userName = "";
+            queryArray = querySnapshot.docs
+            for(let i=0; i<queryArray.length; i++){
+                var loginState = 0;
+                if(queryArray[i].data().id === id){
+                    loginState += 1;
+                    if(queryArray[i].data().pw === pw){
+                        loginState += 1;
+                        userName = queryArray[i].id;
+                        localStorage.setItem("user", userName);
+                        break;
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }
+
+            if(loginState === 1){
+                alert("비밀번호가 틀렸습니다. 다시 확인해주세요.");
+            }else if(loginState === 2){
+                alert(userName+"님, 로그인 되었습니다.");
+                user.innerText = userName+" 님";
+                beforeLogin.style.display = "none";
+                afterLogin.style.display = "block";
+            }else{
+                alert("존재하지 않는 아이디입니다. 다시 확인해주세요.");
+            }
         })
     }
 }
