@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="page3.css">
+        <link rel="stylesheet" href="page5.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
@@ -24,16 +24,64 @@
                         <th>AirPds</th>
                     </tr>
                 </thead>
-            </table>
-
-            <table class="type2">
                 <tbody>
                     <tr>
-                        <td tabindex="0" onkeyup="enterkey()"><img class="fit-picture"
-                            src="./images/ipadmini.png"
-                            alt="ipadmini"
-                            style="width:150px;">
-                        <p>iPad mini<br><br>\769,000부터</p></td>
+                        <th>iPad Air</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>929,000부터</th>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table style="float:left;">
+                <tbody>
+                    <tr>
+                        <td colspan="4"><img class="fit-picture"
+                            src="./images/buy_air.png"
+                            alt="background img 1"
+                            style="width: 500px;"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table style="float:left;" class="type3">
+                <tbody>
+                    <tr>
+                        <td><h3>iPad Air 구입하기</h3></td>
+                    </tr>
+                    <tr>
+                        <td tabindex="0" onkeyup="entercolor()">스페이스 그레이</td>
+                        <td tabindex="0" onkeyup="back()">블루</td>
+                    </tr>
+                    <tr>
+                        <td tabindex="0" onkeyup="back()">핑크</td>
+                        <td tabindex="0" onkeyup="back()">퍼플</td>
+                    </tr>
+                    <tr>
+                        <td tabindex="0" onkeyup="back()">스타라이트</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><h3>저장 장치</h3></td>
+                    </tr>
+                    <tr>
+                        <td tabindex="0" onkeyup="enterdata()">64GB</td>
+                        <td tabindex="0" onkeyup="back()">256GB</td>
+                    </tr>
+                    <tr>
+                        <td><h3>연결성</h3></td>
+                    </tr>
+                    <tr>
+                        <td tabindex="0" onkeyup="enterwifi()">Wi-Fi</td>
+                        <td tabindex="0" onkeyup="back()">Wi-Fi + Cellular</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button onkeyup="check()">장바구니에 담기</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -51,5 +99,5 @@
     
 
 
-    <script src="page3.js"></script>
+    <script src="page5.js"></script>
 </html>

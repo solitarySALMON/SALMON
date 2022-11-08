@@ -18,14 +18,45 @@ function onoff() {
     }
 }
 
-function enterkey() {
+let iscolor = false;
+let isdata = false;
+let iswifi = false;
+
+function check() {
 	if (window.event.keyCode == 13) {
-    	open('page3.html', '_self')
+        console.log(iscolor);
+        console.log(isdata);
+        console.log(iswifi);
+    	if(iscolor&&isdata&&iswifi) {
+            open('page6.html', '_self')
+        }
+    }
+}
+
+
+function entercolor() {
+	if (window.event.keyCode == 13) {
+    	//hover 색깔 칠하기
+        iscolor = true;
+    }
+}
+
+function enterdata() {
+	if (window.event.keyCode == 13) {
+    	//hover 색깔 칠하기
+        isdata = true;
+    }
+}
+
+function enterwifi() {
+	if (window.event.keyCode == 13) {
+    	//hover 색깔 칠하기
+        iswifi = true;
     }
 }
 
 function back() {
 	if (window.event.keyCode == 13) {
-    	open('page2.html', '_self')
+    	open('page5.html', '_self');
     }
 }
