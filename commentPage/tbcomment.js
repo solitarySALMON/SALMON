@@ -12,10 +12,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-const others = document.querySelector('.others');
-const mine = document.querySelector('.mine');
+const others = document.querySelector('.others2');
+const mine = document.querySelector('.mine2');
 
-db.collection("comment").get().then((querySnapshot) =>{
+db.collection("comment2").get().then((querySnapshot) =>{
     querySnapshot.forEach((doc) =>{
         let commentArray = doc.data().history;
 
