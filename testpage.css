@@ -102,4 +102,21 @@ iframe {
     float: left;
     flex-grow: 1;
     border: 1px black solid;
+    position:relative; 
+}
+
+#comment-input{
+    margin-left: 10px;
+    width: 520px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+#submit{
+    background-color: rgb(0, 0, 0);
+    width: 100px;
+    height: 60px;
+    font-size: 15px;
+    font-weight: bold;
+    color: aliceblue;
 }
