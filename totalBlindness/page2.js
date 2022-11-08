@@ -29,3 +29,10 @@ function back() {
     	open('page2.html', '_self')
     }
 }
+
+
+
+function play(event) {
+    const myAudio1 = event.target.childNodes;
+    myAudio1[1].play();
+}
