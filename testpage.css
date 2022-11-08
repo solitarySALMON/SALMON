@@ -101,22 +101,24 @@ iframe {
     margin-left: 20px;
     float: left;
     flex-grow: 1;
+    text-align: center;
     border: 1px black solid;
     position:relative; 
 }
 
-#comment-input{
-    margin-left: 10px;
-    width: 520px;
-    height: 60px;
-    margin-bottom: 10px;
-}
+#register{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 20%; /*가로길이 설정은 여기서*/
+    margin-left: -10%; /*width의 반만큼 음수로*/
+    height: 400px; /*세로길이 설정은 여기서*/
+    margin-top: -200px; /*height의 반만큼 음수로*/
+    z-index: 1000;
 
-#submit{
-    background-color: rgb(0, 0, 0);
-    width: 100px;
-    height: 60px;
-    font-size: 15px;
-    font-weight: bold;
-    color: aliceblue;
+    /*style*/
+    background: rgb(71, 71, 71);
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0 0 6px 1px rgb(0 0 0 / 30%);
 }

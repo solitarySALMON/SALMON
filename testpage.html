@@ -22,8 +22,33 @@
             </table>
         </div>
         <div id="afterLogin" style="display: none;">
-            <span id="user">김철수 님</span>
+            <span id="user">null 님</span>
             <button id="logout">로그아웃</button>
+        </div>
+        <div id="register" style="display: none;">
+            <span style="color: white;">회원가입</span>
+            <table id="registerTable">
+                <tr>
+                    <td style="color: white;">이름</td>
+                    <td><input type="text" id="name"></td>
+                </tr>
+                <tr>
+                    <td style="color: white;">아이디</td>
+                    <td><input type="text" id="id"></td>
+                </tr>
+                <tr>
+                    <td style="color: white;">비밀번호</td>
+                    <td><input type="text" id="pw"></td>
+                </tr>
+                <tr>
+                    <td style="color: white;">비밀번호 확인</td>
+                    <td><input type="text" id="pwcheck"></td>
+                </tr>
+                <tr>
+                    <td><button id="submit">가입</button></td>
+                    <td><button id="cancel">취소</button></td>
+                </tr>
+            </table>
         </div>
         <br>
         <div id="wrapper">
@@ -53,22 +78,7 @@
                 </table>
             </div>
             <div id="comment">
-                <table id="others">
-                    <tr>
-                        <td>김철수</td>
-                        <td>유익한 체험이네요</td>
-                    </tr>
-                </table>
-                <table id="mine">
-                    <tr>
-                        <td>김윤서</td>
-                        <td>잉</td>
-                    </tr>
-                </table>
-                <div style="position:absolute; bottom:0px;">
-                    <input id="comment-input" placeholder="댓글을 입력해 주세요.">
-                    <button id="submit">등록</button>
-                </div>
+                <iframe tabindex="3" id="iframe2" width="97%" height="97%" src="./commentPage/edcomment.html"></iframe>
             </div>
         </div>
     </body>
