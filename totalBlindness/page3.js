@@ -23,3 +23,9 @@ function enterkey() {
     	open('page4.html', '_self')
     }
 }
+
+function back() {
+	if (window.event.keyCode == 13) {
+    	open('page3.html', '_self')
+    }
+}

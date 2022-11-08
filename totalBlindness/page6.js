@@ -18,14 +18,8 @@ function onoff() {
     }
 }
 
-function enterkey() {
+function check() {
 	if (window.event.keyCode == 13) {
-    	open('page3.html', '_self')
-    }
-}
-
-function back() {
-	if (window.event.keyCode == 13) {
-    	open('page2.html', '_self')
+        open('page7.html', '_self')
     }
 }

@@ -1,0 +1,135 @@
+/*on off switch*/
+
+input[type="checkbox"] {
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  label {
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 34px;
+    border-radius: 17px;
+    background-color: #ddd;
+    transition-duration: 0.2s;
+  }
+  
+  label span {
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    z-index: 1;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition-duration: 0.2s;
+  }
+  
+  label:before,
+  label:after{
+    position: absolute;
+    top: 0;
+    width: 34px;
+    font-size: 11px;
+    line-height: 34px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  label:before {
+    left: 0;
+    content: 'ON';
+  }
+  
+  label:after {
+    right: 0;
+    content: 'OFF';
+  }
+  
+  input:checked + label {
+    background-color: #4a4a4a;
+  }
+  
+  input:checked + label span {
+    /* left: 29px; */
+    transform: translateX(26px);
+  }
+  
+  /* ----------------------- */
+  
+  /* head table */
+  
+  table.type1 {
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 10px;
+  }
+  table.type1 thead th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #000000ba;
+    margin: 20px 10px;
+  }
+  table.type1 th {
+    width: 150px;
+    padding: 10px;
+  }
+  
+  
+  /* ----------------------- */
+  
+  /* body table */
+  
+  tr.type2 {
+    border-collapse: separate;
+  }
+  
+  tr.type2 td {
+    border-collapse: collapse;
+    border: solid 1px black;
+    text-align: center;
+    width: 400px;
+    border-radius: 15px;
+  }
+  /* ----------------------- */
+  
+  #div1 {
+    position: absolute;
+    /*right:100px;*/
+  }
+  
+  #div2 {
+    position: relative;
+    top:40px;
+  }
+
+ /* ----------------------- */
+
+  table.type3 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    margin : 20px 10px;
+  }
+  table.type3 th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;  
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+  }
+  table.type3 td {
+    width: 200px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+  }
