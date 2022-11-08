@@ -1,3 +1,7 @@
 function try_page() {
-    location.href="./test2.html"
+    if(localStorage.getItem("user")===null){
+        alert("체험을 위해서는 로그인이 필요합니다.");
+    }else{
+        location.href="./test2.html";
+    }
 }
