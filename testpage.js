@@ -25,6 +25,7 @@ let beforeLogin = document.getElementById("beforeLogin");
 let afterLogin = document.getElementById("afterLogin");
 
 let iframe = document.getElementById("iframe");
+let iframe2 = document.getElementById("iframe2");
 
 let exerciseDisorder = document.getElementById("tab1");
 let lowVision = document.getElementById("tab2");
@@ -53,6 +54,17 @@ togglelabel.addEventListener("keydown", function(e){
     }
 });
 
+if(localStorage.getItem("user")!==null){
+    user.innerText = localStorage.getItem("user")+" 님";
+    beforeLogin.style.display = "none";
+    afterLogin.style.display = "block";
+}else{
+    inputId.value = "";
+    inputPw.value = "";
+    beforeLogin.style.display = "block";
+    afterLogin.style.display = "none";
+}
+
 function login(){
     if(inputId.value === "" || inputPw.value === ""){
         alert("아이디, 비밀번호를 모두 입력해주세요");
@@ -67,9 +79,6 @@ function login(){
                     alert("비밀번호가 다릅니다. 비밀번호를 확인해주세요.");
                 }// 비밀번호 불일치
                 else{
-                    db.doc("user/"+doc.id).update({
-                        loginState : true
-                    })
                     user.innerText = doc.id+" 님";
                     localStorage.setItem("user", doc.id);
                     alert(doc.id+"님, 로그인 되었습니다.");
@@ -85,9 +94,6 @@ function logout(){
     db.collection("user").get().then((querySnapshot) =>{
         querySnapshot.forEach((doc) =>{
             if(localStorage.getItem("user") === doc.id){
-                db.doc("user/"+doc.id).update({
-                    loginState : false
-                })
                 localStorage.clear();
             }
         })
@@ -116,14 +122,17 @@ function changeIframe(pagenum){
     switch(pagenum){
         case 0:
             iframe.src = "./exerciseDisorder/tutorial.html";
+            iframe2.src = "./commentPage/edcomment.html";
             togglelabel.style.display = 'none';
             break;
         case 1:
             iframe.src = "./lowVision/tutorial2.html";
+            iframe2.src = "./commentPage/lvcomment.html";
             togglelabel.style.display = 'block';
             break;
         case 2:
             iframe.src = "./totalBlindness/cart.html"
+            iframe2.src = "./commentPage/tbcomment.html";
             togglelabel.style.display = 'block';
             break;
         default:
