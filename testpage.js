@@ -100,6 +100,7 @@ function login(id, pw){
                 user.innerText = userName+" 님";
                 beforeLogin.style.display = "none";
                 afterLogin.style.display = "block";
+                setTimeout(function(){ location.reload(); }, 500);
             }else{
                 alert("존재하지 않는 아이디입니다. 다시 확인해주세요.");
             }
@@ -121,6 +122,7 @@ function logout(){
     alert("로그아웃 되었습니다.");
     beforeLogin.style.display = "block";
     afterLogin.style.display = "none";
+    setTimeout(function(){ location.reload(); }, 500);
 }
 
 function toggle(){

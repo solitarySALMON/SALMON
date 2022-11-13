@@ -1,3 +1,17 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyBRTjtln7kyZwwvT5KuNgRRKtim4WxHu8g",
+    authDomain: "sw-engeneering.firebaseapp.com",
+    projectId: "sw-engeneering",
+    databaseURL: "https://sw-engeneering-default-rtdb.firebaseio.com/",
+    storageBucket: "sw-engeneering.appspot.com",
+    messagingSenderId: "686866551967",
+    appId: "1:686866551967:web:58b91dd0d822840e467eaa",
+    measurementId: "G-10SHSMCNM8"
+};
+  
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
 let searchBtn = document.getElementById("searchBtn");
 let categoryBtn = document.getElementById("categoryBtn");
 let reviewBtn = document.getElementById("reviewBtn");
@@ -40,6 +54,17 @@ for(let i=0; i<item.length; i++){
 
 welcome.addEventListener("keyup", function(e){
     if(e.key === "Enter"){
-        location.href="./testfinish.html";
+        let status = true;
+        db.collection("user").get().then((querySnapshot) =>{
+            querySnapshot.forEach((doc) =>{
+                console.log(doc.id)
+                if(doc.id == localStorage.getItem("user")){
+                    db.doc("user/"+localStorage.getItem("user")).update({
+                        lvState : status
+                    })
+                }
+            })
+        })
+        setTimeout(function(){ location.href="./testfinish.html"; }, 2000);
     }
 })
