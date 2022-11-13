@@ -143,6 +143,7 @@ function changeIframe(pagenum){
             togglelabel.style.display = 'none';
             break;
         case 1:
+            toggleBtn.checked = false;
             iframe.src = "./lowVision/tutorial2.html";
             iframe2.src = "./commentPage/lvcomment.html";
             togglelabel.style.display = 'block';
