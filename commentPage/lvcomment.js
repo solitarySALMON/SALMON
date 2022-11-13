@@ -50,15 +50,27 @@ db.collection("comment1").get().then((querySnapshot) =>{
 
 function add_comment1(){
     var text = document.getElementById('comment-input');
-    db.collection("comment1").get().then((querySnapshot) =>{
-        querySnapshot.forEach((doc) =>{
-            let commentArray = doc.data().history;
-    
+    db.collection('user').get().then((querySnapshot1)=>{
+        querySnapshot1.forEach((doc) => {
+            let lvstatus = doc.data().lvState;
             if(doc.id == localStorage.getItem("user")){
-                commentArray.push(text.value);
-                db.doc("comment1/"+localStorage.getItem("user")).update({
-                    history : commentArray
-                })
+                if(lvstatus == true){
+                    db.collection("comment1").get().then((querySnapshot2) =>{
+                        querySnapshot2.forEach((doc) =>{
+                            let commentArray = doc.data().history;
+                    
+                            if(doc.id == localStorage.getItem("user")){
+                                commentArray.push(text.value);
+                                db.doc("comment1/"+localStorage.getItem("user")).update({
+                                    history : commentArray
+                                })
+                            }
+                        })
+                    })
+                    setTimeout(function(){ location.reload(); alert("댓글이 작성되었습니다."); }, 2000);
+                }else{
+                    alert("저시력 시각장애 체험을 완료하지 않았습니다.");
+                }
             }
         })
     })
@@ -77,4 +89,5 @@ function delete_comment1(index){
             }
         })
     })
+    setTimeout(function(){ location.reload(); alert("댓글이 삭제되었습니다."); }, 2000);
 }
