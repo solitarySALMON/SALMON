@@ -156,3 +156,127 @@ function changeIframe(pagenum){
             break;
     }
 }
+
+
+document.getElementById("join").addEventListener("click", display_register);
+
+function display_register() {
+    document.getElementById("register").style.display = "block";
+}
+
+document.getElementById("cancel").addEventListener("click", none_register);
+
+function none_register() {
+    document.getElementById("register").style.display = "none";
+}
+
+
+document.getElementById("submit").addEventListener("click", sign_up);
+
+function sign_up() {
+    let name = document.getElementById("name").value;
+    let id = document.getElementById("id").value;
+    let pw = document.getElementById("pw").value;
+    let pwcheck = document.getElementById("pwcheck").value;
+
+    let idcheck = true;
+
+    if(name=="") {
+        alert("이름을 입력해주세요.");
+        return;
+    }
+    if(id=="") {
+        alert("아이디를 입력해주세요.");
+        return;
+    }
+    if(pw=="") {
+        alert("비밀번호를 입력해주세요.");
+        return;
+    }
+
+    if(pw!=pwcheck) {
+        alert("비밀번호가 일치하지 않습니다.");
+        return;
+    }
+
+
+    
+    //아이디 중복확인
+    db.collection("user").get().then((querySnapshot) =>{
+
+        queryArray = querySnapshot.docs
+
+        for(let i=0; i<queryArray.length; i++){
+            console.log(queryArray[i].data().id);
+            if(id==queryArray[i].data().id) {
+                alert("이미 존재하는 아이디입니다.");
+                idcheck = false;
+                return;
+            }
+        }
+
+    }).then(function() {
+        if(idcheck) {
+            set_firebase(id, pw, name);
+        }
+    });
+
+
+
+
+
+}
+
+
+function set_firebase(id, pw, name) {
+    db.collection("user").doc(name).set({
+        id: id,
+        pw: pw,
+        edState: false,
+        lvState: false,
+        tbState: false,
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+
+        db.collection("comment").doc(name).set({
+            history : [],
+        })
+        .then(function() {
+            console.log("Document successfully written!");
+
+            db.collection("comment1").doc(name).set({
+                history : [],
+            })
+            .then(function() {
+                console.log("Document successfully written!");
+
+                db.collection("comment2").doc(name).set({
+                    history : [],
+                })
+                .then(function() {
+                    console.log("Document successfully written!");
+                    alert("회원가입이 완료되었습니다.");
+                    none_register();
+                })
+                .catch(function(error) {
+                    console.error("Error writing document: ", error);
+                });
+
+
+            })
+            .catch(function(error) {
+                console.error("Error writing document: ", error);
+            });
+
+
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
+        });
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+}
+
