@@ -12,6 +12,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+onoff();
+
 document.getElementById("checkbox").addEventListener("click", onoff);
 function onoff() {
     let btn = document.getElementById("checkbox");
