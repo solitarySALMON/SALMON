@@ -50,30 +50,40 @@ db.collection("comment").get().then((querySnapshot) =>{
 
 function add_comment(){
     var text = document.getElementById('comment-input');
-    db.collection('user').get().then((querySnapshot1)=>{
-        querySnapshot1.forEach((doc) => {
-            let edstatus = doc.data().edState;
-            if(doc.id == localStorage.getItem("user")){
-                if(edstatus == true){
-                    db.collection("comment").get().then((querySnapshot2) =>{
-                        querySnapshot2.forEach((doc) =>{
-                            let commentArray = doc.data().history;
-                    
-                            if(doc.id == localStorage.getItem("user")){
-                                commentArray.push(text.value);
-                                db.doc("comment/"+localStorage.getItem("user")).update({
-                                    history : commentArray
-                                })
-                            }
+    if(localStorage.getItem("user")==null){
+        alert("로그인이 필요합니다.");
+        location.reload();
+    }else if(text.value==""){
+        alert("댓글 내용을 작성하세요");
+    }else if(text.value.length > 50){
+        alert("입력 길이가 50자를 초과했습니다.");
+    }else{
+        db.collection('user').get().then((querySnapshot1)=>{
+            querySnapshot1.forEach((doc) => {
+                let edstatus = doc.data().edState;
+                if(doc.id == localStorage.getItem("user")){
+                    if(edstatus == true){
+                        db.collection("comment").get().then((querySnapshot2) =>{
+                            querySnapshot2.forEach((doc) =>{
+                                let commentArray = doc.data().history;
+                        
+                                if(doc.id == localStorage.getItem("user")){
+                                    commentArray.push(text.value);
+                                    db.doc("comment/"+localStorage.getItem("user")).update({
+                                        history : commentArray
+                                    })
+                                }
+                            })
                         })
-                    })
-                    setTimeout(function(){ location.reload(); alert("댓글이 작성되었습니다."); }, 2000);
-                }else{
-                    alert("운동장애 체험을 완료하지 않았습니다.");
+                        setTimeout(function(){ location.reload(); alert("댓글이 작성되었습니다."); }, 2000);
+                    }else{
+                        alert("운동장애 체험을 완료하지 않았습니다.");
+                        location.reload();
+                    }
                 }
-            }
+            })
         })
-    })
+    }
 }
 
 function delete_comment(index){
