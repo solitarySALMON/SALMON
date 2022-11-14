@@ -1,3 +1,4 @@
+onoff();
 document.getElementById("checkbox").addEventListener("click", onoff);
 function onoff() {
     let btn = document.getElementById("checkbox");
