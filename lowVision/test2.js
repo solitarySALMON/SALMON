@@ -52,6 +52,7 @@ for(let i=0; i<item.length; i++){
     })
 }   
 
+//updateStatusLowVision
 welcome.addEventListener("keyup", function(e){
     if(e.key === "Enter"){
         let status = true;

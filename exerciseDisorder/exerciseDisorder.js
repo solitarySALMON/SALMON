@@ -20,6 +20,7 @@ function try_page() {
     }
 }
 
+//updateStatusExerciseDisorder
 function end_page() {
     let status = true;
     db.collection("user").get().then((querySnapshot) =>{
