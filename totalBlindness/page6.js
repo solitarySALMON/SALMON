@@ -34,6 +34,7 @@ function onoff() {
     }
 }
 
+//updateStatisTotalBlindness
 function check() {
 	if (window.event.keyCode == 13) {
         let status = true;
